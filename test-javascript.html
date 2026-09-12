@@ -4,40 +4,39 @@
     Name: Jetsada Wijit
 -->
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h3>JavaScript Learn</h3>
-    First num: <input type="number" id="first_num"><br>
-    Second num: <input type="number" id="second_num"><br>
+    First num: <input type="number" id="first_num" /><br />
+    Second num: <input type="number" id="second_num" /><br />
     <div id="answer">Answer</div>
     <!-- <button onclick="calculate()">Calculate</button> -->
     <button id="answer_button">Calculate</button>
 
     <script>
-        const answerButton = document.getElementById("answer_button");
-        answerButton.addEventListener("click", () => {
-            calculate();
-            console.log("Hello World");
-        })
+      const answerButton = document.getElementById("answer_button");
+      answerButton.addEventListener("click", () => {
+        calculate();
+        console.log("Hello World");
+      });
 
-        /* answerButton.addEventListener("click", calculate); */
+      /* answerButton.addEventListener("click", calculate); */
 
-        function calculate() {
-            const answerEL = document.getElementById("answer");
-            var x = Number(document.getElementById("first_num").value);
-            var y = Number(document.getElementById("second_num").value);
-            var answer = x + y;
-            console.log(`My answer is ${answer}`)
-            answerEL.innerHTML = `<h5 style="background-color: blue;">My answer is ${answer}</h5>`;
-        }
-        /* const answerEL = document.getElementById("answer");
+      function calculate() {
+        const answerEL = document.getElementById("answer");
+        var x = Number(document.getElementById("first_num").value);
+        var y = Number(document.getElementById("second_num").value);
+        var answer = x + y;
+        console.log(`My answer is ${answer}`);
+        answerEL.innerHTML = `<h5 style="background-color: blue;">My answer is ${answer}</h5>`;
+      }
+      /* const answerEL = document.getElementById("answer");
         const PI = 3.14;
 
         // Number
@@ -50,71 +49,81 @@
 
         answerEL.innerHTML = `<h5 style="background-color: blue;">My answer is ${answer}</h5>`; */
 
-        /* Time */
-        const time = new Date().getHours();
-        let greeting;
-        if (time < 10) {
-            greeting = "Good morning";
-        } else if (time < 20) {
-            greeting = "Good day";
-        } else {
-            greeting = "Good evening";
-        }
-        console.log(greeting);
+      /* Time */
+      const time = new Date().getHours();
+      let greeting;
+      if (time < 10) {
+        greeting = "Good morning";
+      } else if (time < 20) {
+        greeting = "Good day";
+      } else {
+        greeting = "Good evening";
+      }
+      console.log(greeting);
 
-        /* Greet */
-        /* function greet(name) {
+      /* Greet */
+      /* function greet(name) {
             return `Hi ${name}`;
         } */
-        const greet = (name) => {
-            return `Hi ${name}`;
-        };
-        let message = greet();
+      const greet = (name) => {
+        return `Hi ${name}`;
+      };
+      let message = greet();
     </script>
-    <hr>
+    <hr />
     <h3>Form Validation</h3>
-    <form id="application_form" name="application_form" onsubmit="return validateForm()">
-        <label for="fname_label">First Name:</label>
-        <input type="text" name="fname" id="fname_label" placeholder="Write your first name"><br><br>
-        <div class="error_input" id="error_input_fname">First name is not correct</div>
+    <form
+      id="application_form"
+      name="application_form"
+      onsubmit="return validateForm();"
+    >
+      <label for="fname_label">First Name:</label>
+      <input
+        type="text"
+        name="fname"
+        id="fname_label"
+        placeholder="Write your first name"
+      /><br /><br />
+      <div class="error_input" id="error_input_fname">
+        First name is not correct
+      </div>
 
-        <button>Submit Form</button>
+      <button>Submit Form</button>
     </form>
     <style>
-        .error_input {
-            color: red;
-            display: none;
-        }
+      .error_input {
+        color: red;
+        display: none;
+      }
     </style>
     <script>
-        function validateForm() {
-            const targetForm = document.forms["application_form"];
+      function validateForm() {
+        const targetForm = document.forms["application_form"];
 
-            const fnameEl = targetForm["fname"];
-            var fNameValue = fnameEl.value;
+        const fnameEl = targetForm["fname"];
+        var fNameValue = fnameEl.value;
 
-            const fnameLabelEl = document.getElementById("fname_label");
-            const errorInputFName = document.getElementById("error_input_fname");
+        const fnameLabelEl = document.getElementById("fname_label");
+        const errorInputFName = document.getElementById("error_input_fname");
 
-            if (fNameValue == "") {
-                /* fnameLabelEl.classList.add("error_input");
+        if (fNameValue == "") {
+          /* fnameLabelEl.classList.add("error_input");
                 alert("First name cannot empty!"); */
-                errorInputFName.style.display = "block";
-                fnameEl.style.borderColor = "red";
-                return false;
-            } else if (fNameValue.length <= 5 || fNameValue.length >= 9) {
-                /* fnameLabelEl.classList.add("error_input");
+          errorInputFName.style.display = "block";
+          fnameEl.style.borderColor = "red";
+          return false;
+        } else if (fNameValue.length <= 5 || fNameValue.length >= 9) {
+          /* fnameLabelEl.classList.add("error_input");
                 alert("Name must be between 6 to 8 character"); */
-                errorInputFName.style.display = "block";
-                fnameEl.style.borderColor = "red";
-                return false
-            }
-            errorInputFName.style.display = "none";
-            fnameEl.style.borderColor = "black";
-
-            return true;
+          errorInputFName.style.display = "block";
+          fnameEl.style.borderColor = "red";
+          return false;
         }
-    </script>
-</body>
+        errorInputFName.style.display = "none";
+        fnameEl.style.borderColor = "black";
 
+        return true;
+      }
+    </script>
+  </body>
 </html>
